@@ -23,7 +23,7 @@ const authBasic = (req, res, next) => {
   return next();
 };
 
-app.get(authBasic, '/play/:stationId/:ft/:to/playlist.m3u8', async (req, res) => {
+app.get('/play/:stationId/:ft/:to/playlist.m3u8', authBasic, async (req, res) => {
   const {
     stationId,
     ft,

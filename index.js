@@ -13,12 +13,12 @@ app.disable('x-powered-by');
 app.get('/', (req, res) => res.send('Hello World!'));
 
 const authBasic = (req, res, next) => {
-  if (!req.header.Authorization) {
+  if (!req.headers.authorization) {
     res.header('WWW-Authenticate', 'Bearer realm="Restricted Area"');
     return res.sendStatus(401);
   }
   const rgx = /^Bearer (.+)$/;
-  const matches = rgx.exec(req.header.Authorization);
+  const matches = rgx.exec(req.headers.authorization);
   if (!matches || matches[1] !== config.token) return res.sendStatus(403);
   return next();
 };

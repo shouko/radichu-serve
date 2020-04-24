@@ -18,4 +18,5 @@ if (process.env.RADICHUCORE_CONFIG_JSON) {
 module.exports = {
   radichuCore,
   port: process.env.PORT || 0,
+  token: process.env.TOKEN,
 };

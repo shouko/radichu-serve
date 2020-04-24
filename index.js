@@ -12,7 +12,18 @@ app.disable('x-powered-by');
 
 app.get('/', (req, res) => res.send('Hello World!'));
 
-app.get('/play/:stationId/:ft/:to/playlist.m3u8', async (req, res) => {
+const authBasic = (req, res, next) => {
+  if (!req.header.Authorization) {
+    res.header('WWW-Authenticate', 'Bearer realm="Restricted Area"');
+    return res.sendStatus(401);
+  }
+  const rgx = /^Bearer (.+)$/;
+  const matches = rgx.exec(req.header.Authorization);
+  if (!matches || matches[1] !== config.token) return res.sendStatus(403);
+  return next();
+};
+
+app.get(authBasic, '/play/:stationId/:ft/:to/playlist.m3u8', async (req, res) => {
   const {
     stationId,
     ft,

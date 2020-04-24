@@ -1,5 +1,4 @@
-require('dotenv');
-
+require('dotenv').config();
 
 let radichuCore = {
   apiEndpoint: process.env.RADICHUCORE_API_ENDPOINT,
@@ -18,4 +17,5 @@ if (process.env.RADICHUCORE_CONFIG_JSON) {
 
 module.exports = {
   radichuCore,
+  port: process.env.PORT || 0,
 };

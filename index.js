@@ -1,6 +1,6 @@
 const express = require('express');
 const bunyan = require('bunyan');
-const radichuCore = require('../radichu-core');
+const radichuCore = require('radichu-core');
 const config = require('./config');
 
 const logger = bunyan.createLogger({ name: 'radichu-serve' });

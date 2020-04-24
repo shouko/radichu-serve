@@ -11,7 +11,8 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "ffmpeg-static": "^4.1.1",
-    "fluent-ffmpeg": "^2.1.2"
+    "fluent-ffmpeg": "^2.1.2",
+    "radichu-core": "shouko/radichu-core#v0.1.0"
   },
   "devDependencies": {
     "eslint": "^6.8.0",

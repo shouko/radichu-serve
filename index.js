@@ -14,13 +14,22 @@ app.get('/', (req, res) => res.send('Hello World!'));
 
 const authBasic = (req, res, next) => {
   if (!req.headers.authorization) {
-    res.header('WWW-Authenticate', 'Bearer realm="Restricted Area"');
+    res.header('WWW-Authenticate', 'Basic realm="Restricted Area"');
     return res.sendStatus(401);
   }
-  const rgx = /^Bearer (.+)$/;
+  const rgx = /^([^\s]+) (.+)$/;
   const matches = rgx.exec(req.headers.authorization);
-  if (!matches || matches[1] !== config.token) return res.sendStatus(403);
-  return next();
+  if (!matches) return res.sendStatus(403);
+  switch (matches[1]) {
+    case 'Basic':
+      if (Buffer.from(matches[2], 'base64').toString() === `${config.token}:`) return next();
+      break;
+    case 'Bearer':
+      if (matches[2] === config.token) return next();
+      break;
+    default:
+  }
+  return res.sendStatus(403);
 };
 
 const servePlaylist = async (req, res) => {

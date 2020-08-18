@@ -23,7 +23,7 @@ const authBasic = (req, res, next) => {
   return next();
 };
 
-app.get('/play/:stationId/:ft/:to/playlist.m3u8', authBasic, async (req, res) => {
+const servePlaylist = async (req, res) => {
   const {
     stationId,
     ft,
@@ -39,7 +39,10 @@ app.get('/play/:stationId/:ft/:to/playlist.m3u8', authBasic, async (req, res) =>
     res.status(400);
     return res.send(e.message);
   }
-});
+};
+
+app.get('/play/:stationId/:ft/:to/playlist.m3u8', authBasic, servePlaylist);
+app.get('/live/:stationId/playlist.m3u8', authBasic, servePlaylist);
 
 const listener = app.listen(config.port, () => {
   logger.info(`Listening on port ${listener.address().port}!`);

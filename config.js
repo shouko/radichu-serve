@@ -2,6 +2,7 @@ require('dotenv').config();
 
 let radichuCore = {
   apiEndpoint: process.env.RADICHUCORE_API_ENDPOINT,
+  liveEndpoint: process.env.RADICHUCORE_LIVE_ENDPOINT,
   metadataEndpoint: process.env.RADICHUCORE_METADATA_ENDPOINT,
   headerPrefix: process.env.RADICHUCORE_HEADER_PREFIX,
   appName: process.env.RADICHUCORE_APPNAME,

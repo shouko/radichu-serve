@@ -13,6 +13,7 @@ app.disable('x-powered-by');
 app.get('/', (req, res) => res.send('Hello World!'));
 
 const authBasic = (req, res, next) => {
+  if (req.query.token === config.token) return next();
   if (!req.headers.authorization) {
     res.header('WWW-Authenticate', 'Basic realm="Restricted Area"');
     return res.sendStatus(401);

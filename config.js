@@ -20,4 +20,8 @@ module.exports = {
   radichuCore,
   port: process.env.PORT || 0,
   token: process.env.TOKEN,
+  rclone: {
+    config: process.env.RCLONE_CONFIG,
+    creds: process.env.RCLONE_CREDS,
+  },
 };

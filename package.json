@@ -1,10 +1,15 @@
 {
   "name": "radichu-serve",
   "version": "0.0.1",
-  "main": "index.js",
+  "main": "app.js",
   "license": "MIT",
+  "engines": {
+    "node": ">=24"
+  },
   "scripts": {
-    "start": "node index.js"
+    "lint": "eslint .",
+    "start": "node server.js",
+    "test": "node --test"
   },
   "dependencies": {
     "bunyan": "^1.8.12",
@@ -12,11 +17,11 @@
     "express": "^4.17.1",
     "ffmpeg-static": "^4.1.1",
     "fluent-ffmpeg": "^2.1.2",
-    "radichu-core": "shouko/radichu-core#v0.4.0"
+    "radichu-core": "shouko/radichu-core#v0.5.0"
   },
   "devDependencies": {
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb-base": "^14.1.0",
-    "eslint-plugin-import": "^2.20.2"
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.7.0",
+    "globals": "^17.7.0"
   }
 }

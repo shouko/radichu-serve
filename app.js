@@ -54,6 +54,4 @@ const servePlaylist = async (req, res) => {
 app.get('/play/:stationId/:ft/:to/playlist.m3u8', authBasic, servePlaylist);
 app.get('/live/:stationId/playlist.m3u8', authBasic, servePlaylist);
 
-const listener = app.listen(config.port, () => {
-  logger.info(`Listening on port ${listener.address().port}!`);
-});
+module.exports = app;

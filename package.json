@@ -14,7 +14,7 @@
   "dependencies": {
     "bunyan": "^1.8.12",
     "dotenv": "^8.2.0",
-    "express": "^4.17.1",
+    "express": "^4.22.0",
     "ffmpeg-static": "^4.1.1",
     "fluent-ffmpeg": "^2.1.2",
     "radichu-core": "shouko/radichu-core#v0.5.0"

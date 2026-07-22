@@ -7,7 +7,7 @@
     "node": ">=24"
   },
   "scripts": {
-    "lint": "eslint --ignore-pattern test .",
+    "lint": "eslint .",
     "start": "node server.js",
     "test": "node --test"
   },
@@ -20,8 +20,8 @@
     "radichu-core": "shouko/radichu-core#v0.5.0"
   },
   "devDependencies": {
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb-base": "^14.1.0",
-    "eslint-plugin-import": "^2.20.2"
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.7.0",
+    "globals": "^17.7.0"
   }
 }
